@@ -53,6 +53,7 @@ EDXAPP_MONGO_PASSWORD: 'password'
 EDXAPP_MONGO_PORT: 27017
 EDXAPP_MONGO_USER: 'edxapp'
 EDXAPP_MONGO_DB_NAME: 'edxapp'
+EDXAPP_MONGO_ENABLE_SSL: False
 
 EDXAPP_MYSQL_DB_NAME: 'edxapp'
 EDXAPP_MYSQL_USER: 'edxapp001'
@@ -491,6 +492,7 @@ edxapp_generic_auth_config:  &edxapp_generic_auth
     port: $EDXAPP_MONGO_PORT
     user: "{{ EDXAPP_MONGO_USER }}"
     collection:  'modulestore'
+    ssl: $EDXAPP_MONGO_ENABLE_SSL
   CONTENTSTORE:
     ENGINE:  'xmodule.contentstore.mongo.MongoContentStore'
     #
@@ -503,6 +505,7 @@ edxapp_generic_auth_config:  &edxapp_generic_auth
       password: "{{ EDXAPP_MONGO_PASSWORD }}"
       port: $EDXAPP_MONGO_PORT
       user: "{{ EDXAPP_MONGO_USER }}"
+      ssl: $EDXAPP_MONGO_ENABLE_SSL
     ADDITIONAL_OPTIONS: "{{ EDXAPP_CONTENTSTORE_ADDITIONAL_OPTS }}"
     DOC_STORE_CONFIG: *edxapp_generic_default_docstore
   MODULESTORE:
