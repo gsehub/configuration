@@ -34,6 +34,7 @@
     - { role: notifier, NOTIFIER_DIGEST_TASK_INTERVAL: "5" }
     - { role: "xqueue", update_users: True }
     - certs
+    - postfix_queue
     - edx_ansible
     - role: newrelic
       when: COMMON_ENABLE_NEWRELIC
