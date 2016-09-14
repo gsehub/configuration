@@ -31,7 +31,7 @@
     - edxapp
     - oraclejdk
     - forum
-    - { role: notifier, NOTIFIER_DIGEST_TASK_INTERVAL: "5" }
+    - notifier
     - { role: "xqueue", update_users: True }
     - certs
     - postfix_queue
