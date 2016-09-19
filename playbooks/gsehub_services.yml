@@ -16,6 +16,9 @@
     ENABLE_LEGACY_ORA: !!null
   roles:
     - security
+    - role: nginx
+      nginx_sites:
+      - forum
     - { role: 'rabbitmq', rabbitmq_ip: '' }
     - oraclejdk
     - elasticsearch
