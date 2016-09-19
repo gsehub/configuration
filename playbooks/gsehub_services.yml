@@ -19,4 +19,7 @@
     - { role: 'rabbitmq', rabbitmq_ip: '' }
     - oraclejdk
     - elasticsearch
+    - notifier
     - edx_ansible
+    - role: newrelic
+      when: COMMON_ENABLE_NEWRELIC

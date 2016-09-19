@@ -31,7 +31,6 @@
     - edxapp
     - oraclejdk
     - forum
-    - notifier
     - { role: "xqueue", update_users: True }
     - certs
     - postfix_queue
