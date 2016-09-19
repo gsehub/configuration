@@ -19,6 +19,8 @@
     - { role: 'rabbitmq', rabbitmq_ip: '' }
     - oraclejdk
     - elasticsearch
+    - forum
+    - postfix_queue
     - notifier
     - edx_ansible
     - role: newrelic
