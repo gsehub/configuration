@@ -38,7 +38,6 @@
     - edxapp
     - oauth_client_setup
     - forum
-    - discovery
     - role: notifier
     - role: xqueue
       update_users: True
