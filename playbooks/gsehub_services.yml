@@ -1,0 +1,31 @@
+---
+
+# Sets up a server with edx services that can't be deployed
+# behind an ELB together with the main django app.
+
+- name: Bootstrap instance(s)
+  hosts: services
+  gather_facts: no
+  become: True
+  roles:
+    - python
+
+- name: Configure instance(s)
+  hosts: services
+  become: True
+  gather_facts: True
+  vars:
+    migrate_db: "yes"
+  roles:
+    - role: swapfile
+      SWAPFILE_SIZE: 4GB
+    - role: rabbitmq
+      rabbitmq_ip: ""
+    - oraclejdk
+    - role: elasticsearch
+    - role: datadog
+      when: COMMON_ENABLE_DATADOG
+    - role: splunkforwarder
+      when: COMMON_ENABLE_SPLUNKFORWARDER
+    - role: newrelic
+      when: COMMON_ENABLE_NEWRELIC
